@@ -6,6 +6,7 @@ const LhePage = () => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
 
   const data = [
+    { name: "LHE SPBE", year: 2023, link: "#" },
     { name: "LHE SPBE", year: 2024, link: "#" },
     // Tambah data lain jika perlu
   ];
@@ -37,25 +38,62 @@ const LhePage = () => {
   return (
     <div style={{ paddingTop: "150px" }}>
       <Container className="my-5">
-        <h4 className="text-center fw-bold mb-5">Laporan Hasil Evaluasi</h4>
+        <h4 className="text-center fw-bold mb-5" style={{ color: "#7C1C1C" }}>
+          Laporan Hasil Evaluasi
+        </h4>
 
         <div className="table-responsive">
-          <Table bordered hover>
+          <Table
+            bordered
+            hover
+            responsive
+            className="align-middle"
+            style={{ borderRadius: "10px", overflow: "hidden" }}
+          >
             <thead>
-              <tr style={{ backgroundColor: "#7C1C1C", color: "white" }} className="text-center align-middle">
-                <th style={{ cursor: "pointer" }} onClick={() => handleSort("name")}>
+              <tr className="text-center align-middle">
+                <th
+                  style={{
+                    backgroundColor: "#861617",
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => handleSort("name")}
+                >
                   Nama Dokumen {getSortIcon("name")}
                 </th>
-                <th style={{ cursor: "pointer" }} onClick={() => handleSort("year")}>
+                <th
+                  style={{
+                    backgroundColor: "#861617",
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => handleSort("year")}
+                >
                   Tahun {getSortIcon("year")}
                 </th>
-                <th>Lihat</th>
+                <th style={{ backgroundColor: "#861617", color: "white" }}>
+                  Lihat
+                </th>
               </tr>
             </thead>
             <tbody>
               {sortedData.length > 0 ? (
                 sortedData.map((item, index) => (
-                  <tr key={index} className="text-center align-middle">
+                  <tr
+                    key={index}
+                    className="text-center align-middle"
+                    style={{
+                      transition: "background-color 0.2s ease",
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f8d7da")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "white")
+                    }
+                  >
                     <td>{item.name}</td>
                     <td>{item.year}</td>
                     <td>
@@ -71,7 +109,6 @@ const LhePage = () => {
                 </tr>
               )}
 
-              {/* Baris kosong tambahan */}
               {Array.from({ length: Math.max(emptyRows, 0) }).map((_, idx) => (
                 <tr key={`empty-${idx}`} className="text-center align-middle">
                   <td>&nbsp;</td>

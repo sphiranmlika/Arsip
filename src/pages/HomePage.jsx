@@ -42,7 +42,7 @@ const HomePage = () => {
           <Row className="header-box d-flex align-items-center">
             <Col lg="6">
               <h1 className="mb-4">
-                Sistem Informasi Manajemen <br /> Sistem Pemerintahan <br /> Berbasis Elektronik
+                Sistem Evaluasi Pemerintahan <br /> Berbasis Elektronik
               </h1>
               <p className="mb-4">
                 Penyelenggaraan pemerintahan yang memanfaatkan teknologi informasi dan komunikasi (TIK) untuk memberikan layanan kepada masyarakat, pemerintah, dan pihak terkait lainnya.
